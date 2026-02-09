@@ -20,21 +20,43 @@
 * **Lệnh:** `git checkout <Tên nhánh>`
 * **Ý nghĩa:** Di chuyển con trỏ đến một nhánh khác để làm việc.
 * **Mẹo:** Để tạo nhanh nhánh mới và nhảy sang nhánh đó ngay lập tức, dùng:  
-    `git checkout -b <Tên nhánh>`
+  `git checkout -b <Tên nhánh>`
 
 ---
 
 ### 4. Gộp nhánh (Merge)
 * **Lệnh:** `git merge <Tên nhánh>`
-* **Cơ chế:** Lệnh này tạo ra một commit mới (Merge Commit) và chuyển nhánh hiện tại đến commit này. Commit mới sẽ có **2 commit cha** (cha từ nhánh hiện tại và cha từ nhánh vừa gộp).
+* **Cơ chế:** Tạo ra một commit mới (Merge Commit) nối hai nhánh lại với nhau. Nhánh hiện tại sẽ trỏ vào commit mới này. Commit này có **2 cha**.
+
+
 
 #### 💡 Ví dụ minh họa:
 Giả sử bạn có 2 nhánh là **bugFix** và **main**, bạn đang đứng ở **main**.
 
-1.  **Gộp bugFix vào main:** Gõ `git merge bugFix`. Git tạo một commit mới. Nhánh `main` sẽ trỏ vào commit mới này. Commit này chứa nội dung của cả `main` cũ và `bugFix`.
-    
-2.  **Đưa bugFix lên cùng vị trí với main:** * Bước 1: `git checkout bugFix` (Nhảy sang nhánh bugFix).
+1.  **Gộp bugFix vào main:** Gõ `git merge bugFix`. Git tạo một commit mới. Nhánh `main` sẽ trỏ vào commit mới này.
+2.  **Đưa bugFix lên cùng vị trí với main:** * Bước 1: `git checkout bugFix`.
     * Bước 2: `git merge main`.
-    * **Kết quả:** Vì `bugFix` là tổ tiên của commit mới mà `main` đang đứng, Git sẽ chỉ đơn giản là di chuyển con trỏ `bugFix` lên thẳng vị trí của `main` (gọi là Fast-forward).
+    * **Kết quả:** Vì `bugFix` là tổ tiên của `main`, Git thực hiện **Fast-forward** (chỉ đơn giản là kéo con trỏ `bugFix` lên đứng cùng `main`).
+
+---
+
+### 5. Di dời nhánh (Rebase)
+* **Lệnh:** `git rebase <Tên nhánh mục tiêu>`
+* **Cơ chế:** Thay vì tạo commit gộp, Rebase sẽ "nhấc" toàn bộ các commit mới của nhánh hiện tại và "đặt nối tiếp" vào điểm cuối của nhánh mục tiêu. Điều này tạo ra một lịch sử code **thẳng hàng**, sạch sẽ.
+
+
+
+#### 💡 Ví dụ minh họa:
+Giả sử bạn đang ở nhánh phụ `docs` và muốn cập nhật những thay đổi mới nhất từ nhánh `main`.
+
+1. **Thực hiện Rebase:**
+   * Di chuyển sang nhánh phụ: `git checkout docs`.
+   * Chạy lệnh: `git rebase main`.
+   * **Kết quả:** Các commit của `docs` giờ đây sẽ nằm trên đỉnh của các commit mới nhất từ `main`.
+
+2. **Cập nhật lại nhánh main:**
+   * Quay lại main: `git checkout main`.
+   * Gộp nhánh: `git merge docs`.
+   * **Kết quả:** Do các commit đã nối thẳng hàng, nhánh `main` chỉ cần "Fast-forward" đến vị trí cuối của `docs`. Lịch sử dự án sẽ cực kỳ đẹp và không có nhánh rẽ.
 
 ---
