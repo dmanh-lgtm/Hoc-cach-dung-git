@@ -1,0 +1,12 @@
+# Hệ điều hành
+.DS_Store
+Thumbs.db
+
+# Cấu hình công cụ soạn thảo
+.vscode/
+.idea/
+*.swp
+*.bak
+
+# Các file tạm thời khác
+*.tmp
