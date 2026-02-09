@@ -1,0 +1,32 @@
+commit kiểu là một trạng thái một snapshot của 1 file, 1 thư mục, 1 repo tại một thời điểm
+branch là một nhánh chứa những commit của nó và trước nó
+trong git thì sẽ luôn có một con trỏ nằm ở một commit nào đó
+1. Lệnh Git commit:
+
+git commit -m <"Lưu ghi chú cho thay đổi">
+
+lưu thay đổi hoặc lưu phiên bản mới nhất của phiên bản so với phiên bản trước đó của code
+
+gemini: git commit là hành động "chụp ảnh" trạng thái code hiện tại và dán cho nó một cái nhãn để dễ dàng tìm lại sau này.
+
+2. Lệnh Git branch:
+
+git branch <Tên nhánh>
+Tạo một nhánh mới trỏ vào commit hiện tại
+
+3. Lệnh Git checkout:
+
+git checkout <Tên nhánh>
+
+Di chuyển con trỏ đến một nhánh 
+
+*Nếu muốn tạo ra một nhánh mới và di chuyển đến nhánh ấy luôn thì có thể dùng lệnh git checkout -b <Tên nhánh>
+
+4. Lệnh Git merge:
+
+git merge <Tên nhánh>
+
+lệnh gộp 2 nhánh này đầu tiên sẽ tạo ra 1 commit mới và chuyển nhánh hiện tại đến commit này. Sau đó cái commit mới này sẽ có cả 2 commit trước đó
+
+Ví dụ: - Có 2 nhánh là bugFix và main, nhánh hiện tại ở main. Lệnh git merge bugFix sẽ tạo ra một commit mới và nhánh main sẽ trỏ vào commit mới này, sau đó commit mới này sẽ có 2 commit cha là bugFix và commit trước của main
+- Lúc này nếu muốn bugFix cũng nằm ở commit mới cùng main thì chỉ cần di chuyển con trỏ tới nhánh bugFix (git checkout bugFix) rồi sau đó dùng lệnh gộp (git merge main), do bugFix là nhánh cha của commit mới mà nhánh main chuyển qua nên bugFix sẽ chỉ đơn giản là di chuyển đến commit mới chứa nhánh main
