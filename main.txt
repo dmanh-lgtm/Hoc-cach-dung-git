@@ -1,6 +1,7 @@
 commit kiểu là một trạng thái một snapshot của 1 file, 1 thư mục, 1 repo tại một thời điểm
 branch là một nhánh chứa những commit của nó và trước nó
 trong git thì sẽ luôn có một con trỏ nằm ở một commit nào đó
+I. Các câu lệnh git
 1. Lệnh Git commit:
 
 git commit -m <"Lưu ghi chú cho thay đổi">
@@ -68,3 +69,13 @@ Khi đó đứng ở C5 các lệnh git checkout HEAD^<number> number ở đây 
 thời điểm commit
 
 Test Branch Cases
+1. Merge (gộp hai nhánh)
+
+Merge được dùng để gộp nội dung và lịch sử của hai nhánh lại với nhau.
+Khi merge, Git sẽ tạo ra một merge commit mới, commit này có hai commit cha
+và thể hiện trạng thái code sau khi đã kết hợp hai nhánh.
+
+Trong trường hợp không có conflict, Git sẽ tự động gộp code.
+Nếu có conflict, người dùng cần chỉnh sửa code để giải quyết conflict
+trước khi hoàn tất quá trình merge.
+
