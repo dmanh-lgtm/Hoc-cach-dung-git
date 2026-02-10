@@ -41,10 +41,30 @@ Ngược lại với git merge là gộp một nhánh vào nhánh hiện tại t
 mình muốn gộp. 
 *Nhưng khi dùng rebase thì sẽ không dùng ở nhánh chính mà sẽ dùng ở nhánh phụ. Ví dụ: gộp nhánh chính main và nhánh phụ docs, đầu tiên chuyển đến 
 nhánh hiện tại là nhánh phụ docs (git checkout docs) sau đó dùng git rebase main để chuyển toàn bộ commit nhánh docs 
-lên trên đầu nhánh main rồi sau đó di chuyển sang nhánh main (git checkout main) rồi dùng git merge docs. Lúc này do các commit thuộc nhánh docs đã nối vào nhánh main lên khi dùng merge thì nhánh main sẽ chỉ di chuyển tới vị trí commit của nhánh docs
+lên trên đầu nhánh main rồi sau đó di chuyển sang nhánh main (git checkout main) rồi dùng git merge docs. Lúc này do các commit thuộc nhánh docs đã nối vào nhánh main 
+lên khi dùng merge thì nhánh main sẽ chỉ di chuyển tới vị trí commit của nhánh docs
 
+--Thử nối nhánh
 
+6. lệnh git checkout với Head
 
+6.1 Git checkout HEAD~<number>
 
+Trong git nhánh hiện tại thực chất là một con trỏ HEAD trỏ vào nhánh hiện tại và trỏ vào commit 
+
+Ví dụ: Một repo có thứ tự commit là C0->C1->C2->C3->C4 nhánh hiện tại là nhánh main ở commit thứ 4 thì sẽ là: HEAD->main->C4. Có thể di chuyển giữa các 
+commit bằng HEAD như di chuyển đến các nhánh bằng tên nhánh. Như muốn di chuyển đến commit C3 trong khi đang ở C4 thì sẽ dùng git checkout HEAD~1 và di chuyển đến C2 thì 
+dùng git checkout HEAD~2 
+
+6.2 Git checkout HEAD^
+
+sử dụng ^ để đi lùi lại các commit trong quá khứ khác với sử dụng ~ ở chỗ chỉ có thể sử dụng ^^ thay vì ^2 khi một nhánh là đường thẳng tức C1->C2->C3->C4 mà không có các commit
+là kết quả của lệnh merge 
+
+Ví dụ: Một nhánh đang ở C4 có các commit C1->C2->C3->C4 và muốn lùi về C2 sẽ sử dụng lệnh git checkout HEAD^^ còn nếu một nhánh đã từng dùng lệnh gộp merge như 
+C1->C2->C3->}C5             #Tức là C2 nối với cả C3 và C4 rồi sau đó C3 và C4 đều nối với C5 
+    C2->C4->}C5    
+Khi đó đứng ở C5 các lệnh git checkout HEAD^<number> number ở đây sẽ lùi về các commit cha ngay trước đó và chọn commit theo number mà mình nhập. Số thứ tự các commit sẽ tùy theo 
+thời điểm commit
 
 Test Branch Cases
