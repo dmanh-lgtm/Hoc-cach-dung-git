@@ -42,3 +42,9 @@ mình muốn gộp.
 *Nhưng khi dùng rebase thì sẽ không dùng ở nhánh chính mà sẽ dùng ở nhánh phụ. Ví dụ: gộp nhánh chính main và nhánh phụ docs, đầu tiên chuyển đến 
 nhánh hiện tại là nhánh phụ docs (git checkout docs) sau đó dùng git rebase main để chuyển toàn bộ commit nhánh docs 
 lên trên đầu nhánh main rồi sau đó di chuyển sang nhánh main (git checkout main) rồi dùng git merge docs. Lúc này do các commit thuộc nhánh docs đã nối vào nhánh main lên khi dùng merge thì nhánh main sẽ chỉ di chuyển tới vị trí commit của nhánh docs
+
+
+
+
+
+Test Branch Cases
