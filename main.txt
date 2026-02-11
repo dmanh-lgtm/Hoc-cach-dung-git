@@ -2,7 +2,6 @@
     branch là một nhánh chứa những commit của nó và trước nó
     trong git thì sẽ luôn có một con trỏ nằm ở một commit nào đó
     #Test LF
-    I. Các câu lệnh git
     1. Lệnh Git commit:
 
     git commit -m <"Lưu ghi chú cho thay đổi">
@@ -77,3 +76,4 @@
     Việc dùng merge có thể giúp tạo ra một commit mới là trạng thái của commit trước đó của nhánh này hoặc nhánh kia hoặc cũng có thể lấy code của cả 2 nhánh
     *Có thể sửa code trong quá trình merge 2 nhánh với nhau
 
+TEST amend
