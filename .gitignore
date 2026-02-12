@@ -10,3 +10,5 @@ Thumbs.db
 
 # Các file tạm thời khác
 *.tmp
+
+rule_commit.txt
