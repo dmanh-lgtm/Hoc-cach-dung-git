@@ -1,7 +1,6 @@
     commit kiểu là một trạng thái một snapshot của 1 file, 1 thư mục, 1 repo tại một thời điểm
     branch là một nhánh chứa những commit của nó và trước nó
     trong git thì sẽ luôn có một con trỏ nằm ở một commit nào đó
-    #Test LF
     1. Lệnh Git commit:
 
     git commit -m <"Lưu ghi chú cho thay đổi">
@@ -45,8 +44,6 @@
     lên trên đầu nhánh main rồi sau đó di chuyển sang nhánh main (git checkout main) rồi dùng git merge docs. Lúc này do các commit thuộc nhánh docs đã nối vào nhánh main 
     lên khi dùng merge thì nhánh main sẽ chỉ di chuyển tới vị trí commit của nhánh docs
 
-    --Thử nối nhánh
-
     6. lệnh git checkout với Head
 
     6.1 Git checkout HEAD~<number>
@@ -67,8 +64,13 @@
         C2->C4->}C5    
     Khi đó đứng ở C5 các lệnh git checkout HEAD^<number> number ở đây sẽ lùi về các commit cha ngay trước đó và chọn commit theo number mà mình nhập. Số thứ tự các commit sẽ tùy theo 
     thời điểm commit
- --Test Branch Cases
  
+    7. Lệnh git branch -f <tên nhánh> <commit>
+
+    Lệnh giúp di chuyển một nhánh tới một commit bất kì thuộc bất kì nhánh (nhưng phải đứng trên nhánh khác để thực hiện lệnh). Lệnh có thể giúp tìm lại các commit 
+    bị ẩn của một nhánh bằng mã hash của commit đó. Ví dụ: git branch -f docs_tg f939ab5
+
+    Có thể kết hợp với relative ref HEAD(~ hoặc ^) để di chuyển  
     II. Các trường hợp dùng merge và rebase
 
     1. Merge(Gộp 2 nhánh vào nhau)
