@@ -65,12 +65,19 @@
     Khi đó đứng ở C5 các lệnh git checkout HEAD^<number> number ở đây sẽ lùi về các commit cha ngay trước đó và chọn commit theo number mà mình nhập. Số thứ tự các commit sẽ tùy theo 
     thời điểm commit
  
-    7. Lệnh git branch -f <tên nhánh> <commit>
+    7. Git branch -f <tên nhánh> <commit>
 
     Lệnh giúp di chuyển một nhánh tới một commit bất kì thuộc bất kì nhánh (nhưng phải đứng trên nhánh khác để thực hiện lệnh). Lệnh có thể giúp tìm lại các commit 
     bị ẩn của một nhánh bằng mã hash của commit đó. Ví dụ: git branch -f docs_tg f939ab5
-
     Có thể kết hợp với relative ref HEAD(~ hoặc ^) để di chuyển  
+
+    8. Git reset HEAD~<number>
+    
+    Lệnh sẽ khiến HEAD và nhánh hiện tại di chuyển về ví trị commit cũ được chỉ định nhưng tùy thuộc mức độ reset mà sẽ có những thay đổi khác nhau. Lệnh git reset có 
+    3 trạng thái là git reset --soft, git reset --mixed, git reset --hard. Git reset --soft sẽ di chuyển HEAD và nhánh hiện tại về commit cũ được chỉ định, giữ nguyên toàn 
+    bộ trạng thái có ở vùng Staging area và Working directory. Git reset --mixed là lệnh mặc định khi chỉ gõ lệnh git reset lệnh này khác lệnh git reset --soft ở chỗ là sẽ 
+    chuyển sang trạng thái Staging area của commit cũ được chỉ định. Lệnh git reset --hard thì sẽ di chuyển HEAD và nhánh hiện tại về commit cũ được chỉ định và lấy trạng thái staging area và 
+    working directory của commit cũ được chỉ định
     II. Các trường hợp dùng merge và rebase
 
     1. Merge(Gộp 2 nhánh vào nhau)
@@ -78,4 +85,4 @@
     Việc dùng merge có thể giúp tạo ra một commit mới là trạng thái của commit trước đó của nhánh này hoặc nhánh kia hoặc cũng có thể lấy code của cả 2 nhánh
     *Có thể sửa code trong quá trình merge 2 nhánh với nhau
 
-TEST amend
+    
