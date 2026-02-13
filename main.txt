@@ -96,6 +96,10 @@
     A -- B -- C -- E   (HEAD)
               \
                D   (main)
+    10. Git cherry-pick <commit>
+
+    Lệnh sẽ giúp sao chép các thay đổi của một commit được chỉ định bằng mã hash và đặt lên sau commit mà HEAD đang trỏ tới. Lệnh có thể gọi nhiều commit một lúc ví dụ như 
+    gõ git cherry-pick C6 C7 C8 tại C5 thì sẽ tạo ra C5->C6'-C7'-C8' và giải quyết xung đột nếu có giống khi rebase
     1. Merge(Gộp 2 nhánh vào nhau)
 
     Việc dùng merge có thể giúp tạo ra một commit mới là trạng thái của commit trước đó của nhánh này hoặc nhánh kia hoặc cũng có thể lấy code của cả 2 nhánh
