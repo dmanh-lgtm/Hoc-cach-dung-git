@@ -79,7 +79,23 @@
     chuyển sang trạng thái Staging area của commit cũ được chỉ định. Lệnh git reset --hard thì sẽ di chuyển HEAD và nhánh hiện tại về commit cũ được chỉ định và lấy trạng thái staging area và 
     working directory của commit cũ được chỉ định
     II. Các trường hợp dùng merge và rebase
-
+     9. Git revert HEAD~<number>
+    
+    Lệnh git revert sẽ tạo ra một commit áp dụng sự thay đổi ngược của commit được chỉ định và áp dụng sự thay đổi đó lên HEAD hiện tại. Git tạo ra một revert patch và áp dụng 
+    lên đúng 1 HEAD hiện tại chứ không áp dụng lên các commit trung gian.
+    có thể dùng -n để revert một lần nhiều commit
+    Ví dụ 1: A -- B -- C -- D (HEAD)
+    Chạy lệnh: git revert B
+    A -- B -- C -- D -- E
+    Ví dụ 2:
+    A -- B -- C -- D   (nhánh main)
+    A -- B -- C   (HEAD)
+              \
+               D   (main trỏ tới D)
+    Chạy lệnh git revert B
+    A -- B -- C -- E   (HEAD)
+              \
+               D   (main)
     1. Merge(Gộp 2 nhánh vào nhau)
 
     Việc dùng merge có thể giúp tạo ra một commit mới là trạng thái của commit trước đó của nhánh này hoặc nhánh kia hoặc cũng có thể lấy code của cả 2 nhánh
