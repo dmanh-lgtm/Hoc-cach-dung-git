@@ -96,6 +96,22 @@
     A -- B -- C -- E   (HEAD)
               \
                D   (main)
+    10. Git cherry-pick <commit>
+    
+    Lệnh sẽ giúp sao chép các thay đổi của một commit được chỉ định bằng mã hash và đặt lên sau commit mà HEAD đang trỏ tới. Lệnh có thể gọi nhiều commit một lúc ví dụ như 
+    gõ git cherry-pick C6 C7 C8 tại C5 thì sẽ tạo ra C5->C6'-C7'-C8' và giải quyết xung đột nếu có giống khi rebase
+
+    11. Lệnh git rebase -i HEAD~<number>
+    
+    Lệnh này sẽ cho phép thiết lập các thay đổi các commit bắt đầu từ commit được chỉ định tới commit hiện tại. Khi lệnh 
+    được thực thi sẽ mở ra một giao diện interactive rebase cho phép sử dụng các thiết lập như:
+    Có thể thay đổi thời điểm xuất hiện của các commit
+    -Drop: Loại bỏ commit
+    -Squash: Gộp commit được chỉ định với commit trước đó, sẽ hiện ra giao diện để chỉnh lại message cho commit
+    -Reword: Cho phép thay đổi tin nhắn message của một commit
+    -Edit: Cho phép thay đổi nội dung commit và message, sau khi thay đổi xong gõ git add, git commit --amend để áp dụng thay đổi
+    -Fixup: Đưa nội dung của commit hiện tại vào commit bên dưới và xóa commit này đi
+
     1. Merge(Gộp 2 nhánh vào nhau)
 
     Việc dùng merge có thể giúp tạo ra một commit mới là trạng thái của commit trước đó của nhánh này hoặc nhánh kia hoặc cũng có thể lấy code của cả 2 nhánh
