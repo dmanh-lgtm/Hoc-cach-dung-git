@@ -142,12 +142,29 @@
     3 Lệnh git pull 
 
     Lệnh git pull là lệnh kết hợp của git fetch và git merge, nó sẽ cập nhật các remote-tracking và gộp nhánh hiện tại với các remote tracking đó
-    Ví dụ: Git pull origin main
-    *Có thể gõ git push -u origin main để thiết lập liên kết để lần sau đứng ở nhánh main chỉ cần gõ git pull
     III. Các trường hợp
+
+    4. Remote tracking
+
+    Có thể tạo các liên kết nhiều nhánh ở local tới một nhánh trên github, khi push hoặc pull tại nhánh đó thì sẽ tương đương
+    với push hoặc pull với nhánh cùng tên với nhánh có trên máy (ví dụ như main ở local với main trên github)
+    Có 2 cách để tạo remote tracking
+
+    #1 tạo mới và gắn luôn với nhánh trên github
+    git checkout -b <Tên nhánh local> origin/<Tên nhánh trên github>
+
+    #2 chuyển liên kết nhánh hiện tại sang nhánh khác trên github
+    git branch -u  origin/<tên nhánh trên github> <tên nhánh trên local>
+
     1. Merge(Gộp 2 nhánh vào nhau)
 
     Việc dùng merge có thể giúp tạo ra một commit mới là trạng thái của commit trước đó của nhánh này hoặc nhánh kia hoặc cũng có thể lấy code của cả 2 nhánh
     *Có thể sửa code trong quá trình merge 2 nhánh với nhau
+
+    2. Diverged Work
+
+    Khi nhánh ở local và github trình tự commit đã bị phân nhánh không còn lịch sử commit giống nhau, ví dụ khi ở local commit C1->C2->C3 còn ở
+    github là C1->C2->C4, C3 do mình viết còn C4 do người khác viết push lên. Khi này một trong 2 người khi push lên sẽ bị rejected. Còn khi pull
+    về có thể xảy ra conflict.
 
     
