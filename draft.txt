@@ -138,10 +138,24 @@
 
     Lệnh git fetch sẽ tải tất cả các thay đổi trên github về mà trên local không có sau đó sẽ cập nhật các remote-tracking như nhánh origin/main 
     nhưng nó sẽkhông cập nhật các thay đổi ở nhánh trên local chỉ origin của chúng
+    -Có thể dùng git fetch origin :<tên nhánh bất kì> để tạo nhánh trên local
+    git fetch <remote> <source>:<destination>
 
-    3 Lệnh git pull 
+    3 Lệnh git pull <tên remote> <nhánh trên github>:<nhánh trên local> (nhánh trên local sẽ tự thêm origin/ đằng trước)
+    Thường thì sẽ chỉ gõ một tên đại diện cho cả nhánh trên github và origin/nhánh trên local
+
+    Ví dụ: git pull origin chingching thì sẽ là git pull origin chingching:origin/chingching.
 
     Lệnh git pull là lệnh kết hợp của git fetch và git merge, nó sẽ cập nhật các remote-tracking và gộp nhánh hiện tại với các remote tracking đó
+    đối với ví dụ trên sẽ có nghĩa là cập nhật nhánh origin/chingching theo thay đổi mới nhất của nhánh chingching trên github sau đó sẽ gộp
+    nhánh hiện tại với nhánh origin/chingching
+
+    4. Lệnh git push <tên remoet>
+    1. Merge(Gộp 2 nhánh vào nhau)
+
+    Việc dùng merge có thể giúp tạo ra một commit mới là trạng thái của commit trước đó của nhánh này hoặc nhánh kia hoặc cũng có thể lấy code của cả 2 nhánh
+    *Có thể sửa code trong quá trình merge 2 nhánh với nhau
+    -Có thể dùng git push :<tên nhánh trên github> để xóa nhánh 
     III. Các trường hợp
 
     4. Remote tracking
@@ -155,12 +169,9 @@
 
     #2 chuyển liên kết nhánh hiện tại sang nhánh khác trên github
     git branch -u  origin/<tên nhánh trên github> <tên nhánh trên local>
-
-    1. Merge(Gộp 2 nhánh vào nhau)
-
-    Việc dùng merge có thể giúp tạo ra một commit mới là trạng thái của commit trước đó của nhánh này hoặc nhánh kia hoặc cũng có thể lấy code của cả 2 nhánh
-    *Có thể sửa code trong quá trình merge 2 nhánh với nhau
-
+    
+    #3 khi push một nhánh nào đó lên github
+    git push -u origin <tên nhánh trên github>
     2. Diverged Work
 
     Khi nhánh ở local và github trình tự commit đã bị phân nhánh không còn lịch sử commit giống nhau, ví dụ khi ở local commit C1->C2->C3 còn ở
