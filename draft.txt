@@ -138,6 +138,13 @@
 
     Lệnh git fetch sẽ tải tất cả các thay đổi trên github về mà trên local không có sau đó sẽ cập nhật các remote-tracking như nhánh origin/main 
     nhưng nó sẽkhông cập nhật các thay đổi ở nhánh trên local chỉ origin của chúng
+
+    3 Lệnh git pull 
+
+    Lệnh git pull là lệnh kết hợp của git fetch và git merge, nó sẽ cập nhật các remote-tracking và gộp nhánh hiện tại với các remote tracking đó
+    Ví dụ: Git pull origin main
+    *Có thể gõ git push -u origin main để thiết lập liên kết để lần sau đứng ở nhánh main chỉ cần gõ git pull
+    III. Các trường hợp
     1. Merge(Gộp 2 nhánh vào nhau)
 
     Việc dùng merge có thể giúp tạo ra một commit mới là trạng thái của commit trước đó của nhánh này hoặc nhánh kia hoặc cũng có thể lấy code của cả 2 nhánh
