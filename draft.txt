@@ -1,6 +1,8 @@
     commit kiểu là một trạng thái một snapshot của 1 file, 1 thư mục, 1 repo tại một thời điểm
     branch là một nhánh chứa những commit của nó và trước nó
     trong git thì sẽ luôn có một con trỏ nằm ở một commit nào đó
+    I.Main
+
     1. Lệnh Git commit:
 
     git commit -m <"Lưu ghi chú cho thay đổi">
@@ -121,6 +123,21 @@
 
     Lệnh sẽ cho biết được vị trí của commit được chỉ định so với tag gần nhất trong lịch sử tổ tiên, 
     git describe sẽ cho các thông tin <tag>-<số commit nằm giữa tag gần nhất>-g<mã hash của commit được chỉ định>
+
+    II. Remote
+
+    1. Lệnh Git clone 
+    
+    Lệnh sẽ tải về toàn bộ source code, lịch sử commit, các branch, các tag một repo trên github về thông qua link ssh, https... vào 
+    máy local 
+    Các nhánh có tiền tố origin <tên nhánh> sẽ xuất hiện ở git graph, đây là remote branch, remote brach có thể giúp phân biệt sự khác nhau giữa
+    cùng một nhánh ở local và một nhánh trên github khi có sự thay đổi. Các remote branch không thể di chuyển trừ khi là hành động cập nhật(pull, push, fetch)
+    trên local hoặc github, nếu chekcout remote branch và commit thì thứ di chuyển là con trỏ HEAD.
+
+    2. Lệnh Git fetch
+
+    Lệnh git fetch sẽ tải tất cả các thay đổi trên github về mà trên local không có sau đó sẽ cập nhật các remote-tracking như nhánh origin/main 
+    nhưng nó sẽkhông cập nhật các thay đổi ở nhánh trên local chỉ origin của chúng
     1. Merge(Gộp 2 nhánh vào nhau)
 
     Việc dùng merge có thể giúp tạo ra một commit mới là trạng thái của commit trước đó của nhánh này hoặc nhánh kia hoặc cũng có thể lấy code của cả 2 nhánh
